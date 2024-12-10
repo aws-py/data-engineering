@@ -1,7 +1,6 @@
 import pandas as pd
 from typing import Tuple
 
-
 # Crear DataFrame 1
 data1 = {
     'id': [1, 2, 3],

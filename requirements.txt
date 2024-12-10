@@ -1,0 +1,3 @@
+pandas==2.1.1
+unittest==3.13.0
+

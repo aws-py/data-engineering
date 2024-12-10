@@ -1,0 +1,11 @@
+# Ignorar archivos de log
+*.log
+*.txt
+*.csv
+*.xlsx
+*.xls
+*.json
+*.ini
+*.cfg
+*.conf
+*.sh

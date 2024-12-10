@@ -12,12 +12,18 @@ jobs:
         with:
           python-version: '3.8'  # Cambia la versión según sea necesario
 
+      - name: Check if requirements.txt exists
+        run: |
+          if [ ! -f requirements.txt ]; then
+            echo "requirements.txt no encontrado. Asegúrate de que el archivo esté presente."
+            exit 1
+          fi
+
       - name: Install dependencies
         run: |
-          pip install pandas
           pip install -r requirements.txt  # Si tienes un archivo de requisitos
 
       - name: Run tests
         run: |
-          python -m unittest discover -s . -p "test_read_data.py"
+          python -m unittest discover -s . -p "*.py"  # Ejecutar todas las pruebas
 

@@ -1,0 +1,44 @@
+rm -f *.class *.jar
+scalac -classpath "/opt/spark/jars/*" SimpleApp.scala
+jar cvf SimpleApp.jar *.class
+spark-submit --class SimpleApp --master local[*] SimpleApp.jar
+
+
+
+-------------------
+
+ok version
+
+rm -f *.class *.jar
+scalac -classpath "/opt/spark/jars/*" SimpleApp_2.scala
+ls *.class
+jar cvf SimpleApp_2.jar SimpleApp_2*.class
+spark-submit --class SimpleApp_2 --master local[*] SimpleApp_2.jar
+
+
+-------------------------------------
+
+scalac -classpath "/opt/spark/jars/*" ComplexPipelineApp.scala
+jar cvf ComplexPipelineApp.jar ComplexPipelineApp*.class
+spark-submit --class ComplexPipelineApp --master local[*] ComplexPipelineApp.jar
+
+
+-------------------------------------
+
+Procesamiento en Cluster: Ejecuta tu aplicación en un clúster Spark cambiando el valor de --master en spark-submit.
+
+spark-submit --class SimpleApp_2 --master spark://<master-node>:7077 SimpleApp_2.jar
+
+
+
+
+A partir de la salida del comando lscpu, podemos analizar los recursos disponibles:
+
+spark-submit \
+  --class SimpleApp_2 \
+  --master local[*] \
+  --num-executors 8 \
+  --executor-cores 2 \
+  --executor-memory 4g \
+  --driver-memory 2g \
+  SimpleApp_2.jar

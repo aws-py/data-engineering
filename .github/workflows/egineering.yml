@@ -1,5 +1,5 @@
 name: engineering workflow
-on: workflow_dispatch
+on: [push, workflow_dispatch]
 jobs:
   first-job:
     runs-on: ubuntu-latest

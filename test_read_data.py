@@ -35,6 +35,6 @@ def test_calcular_estadisticas_edad(dataframes):
     df1, df2 = dataframes
     df_resultado = AnalizadorDatos.realizar_left_join(df1, df2)
     max_edad, promedio_edad, min_edad = AnalizadorDatos.calcular_estadisticas_edad(df_resultado)
-    assert max_edad == 311
+    assert max_edad == 30
     assert promedio_edad == 27.5  # (25 + 30) / 2
     assert min_edad == 25 
